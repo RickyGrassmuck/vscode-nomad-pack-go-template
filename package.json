@@ -1,5 +1,5 @@
 {
-  "name": "vscode-nomad-pack-template",
+  "name": "vscode-nomad-pack-go-template",
   "displayName": "Nomad Pack Style Go Template Support",
   "description": "Syntax highlight support for Nomad Pack's flavor of Go text/template and html/template",
   "version": "0.1.0",
@@ -65,12 +65,12 @@
   },
   "activationEvents": [
     "onStartupFinished",
-    "onCommand:nomad-pack-go-template.reload"
+    "onCommand:go-template.reload"
   ],
   "contributes": {
     "languages": [
       {
-        "id": "nomad-pack-go-template",
+        "id": "go-template",
         "aliases": [
           "Go Template",
           "go-template"
@@ -238,7 +238,7 @@
     },
     "commands": [
       {
-        "command": "nomad-pack-go-template.reload",
+        "command": "go-template.reload",
         "title": "Reload Nomad-Pack Go Template Syntax Highlight Support",
         "category": "Go Template"
       }

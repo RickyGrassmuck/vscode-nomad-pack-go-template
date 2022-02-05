@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import GoTemplateSemanticTokensProvider, { goTemplateLegend } from './GoTemplateSemanticTokensProvider';
 import MarkdownGoTemplateSemanticTokensProvider from './MarkdownGoTemplateSemanticTokensProvider';
 
-const CONFIG_SECTION = 'nomad-pack-go-template';
+const CONFIG_SECTION = 'go-template';
 
 const getConfig = (): { languages: vscode.DocumentFilter[]; patterns: vscode.DocumentFilter[] } => {
   const config = vscode.workspace.getConfiguration(CONFIG_SECTION);
@@ -50,7 +50,7 @@ export const activate = (context: vscode.ExtensionContext): void => {
     registerProvider(context, [...languages, ...patterns]);
   });
 
-  vscode.commands.registerCommand('nomad-pack-go-template.reload', () => {
+  vscode.commands.registerCommand('go-template.reload', () => {
     vscode.window.showInformationMessage('Reloading Nomad-Pack Go Template Syntax Support.');
     const { languages, patterns } = getConfig();
     registerProvider(context, [...languages, ...patterns]);
