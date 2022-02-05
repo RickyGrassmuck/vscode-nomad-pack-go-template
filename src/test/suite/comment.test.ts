@@ -40,7 +40,6 @@ suite('Parse Comment', () => {
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
     // prettier-ignore
-    console.log(tokens?.data);
     expect(tokens?.data).to.be.Uint32Array();
     // prettier-ignore
     expect(tokens?.data).to.be.equalTo([

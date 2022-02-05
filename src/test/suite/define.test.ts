@@ -4,7 +4,6 @@ import * as vscode from 'vscode';
 import GoTemplateSemanticTokensProvider from '../../GoTemplateSemanticTokensProvider';
 import TokenType from '../../tokenType';
 
-chai.config.truncateThreshold = 500;
 chai.use(assertArrays);
 
 suite('Parse Define', () => {
@@ -31,9 +30,7 @@ suite('Parse Define', () => {
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
     // prettier-ignore
-
     expect(tokens?.data).to.be.Uint32Array();
-
     // prettier-ignore
     expect(tokens?.data).to.be.equalTo([
       1, 8, 2, TokenType.begin, 0,
