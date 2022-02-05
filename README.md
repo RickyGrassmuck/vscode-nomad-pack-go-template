@@ -18,8 +18,9 @@ Nomad Pack Flavor Go Template Syntax Highlight Support for VSCode.
 
 ## Features
 
+**Note: screenshots below have the old delimiters, will update with screenshots of the new ones!**
+
 - Uses the alternative `[[ ]]` opening and closing delimiters that are used in Nomad-Pack template files.
--
 - Support syntax highlighting for Go Template embedded in literal string in Go source file.
 
   ![Go](./assets/screenshots/go.png)
