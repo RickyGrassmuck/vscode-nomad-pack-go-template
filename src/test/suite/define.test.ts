@@ -5,7 +5,7 @@ import GoTemplateSemanticTokensProvider from '../../GoTemplateSemanticTokensProv
 import TokenType from '../../tokenType';
 
 chai.use(assertArrays);
-chai.config.truncateThreshold = 0;
+chai.config.truncateThreshold = 150;
 
 suite('Parse Define', () => {
   let provider: GoTemplateSemanticTokensProvider;
