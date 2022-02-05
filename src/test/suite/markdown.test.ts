@@ -29,11 +29,11 @@ suite('Parse Markdown', () => {
       content: `# This is a test
 
 ${markdownCodeTag[0]}html
-[[ if .Value }} template [[ else ]] normal {{ end ]] code
+[[ if .Value ]] template [[ else ]] normal  end ]] code
 ${markdownCodeTag[0]}
 
 ${markdownCodeTag[1]}html go-template
-[[ if .Value }} template [[ else ]] normal {{ end ]] code
+[[ if .Value ]] template [[ else ]] normal [[ end ]] code
 ${markdownCodeTag[1]}
 
 ${markdownCodeTag[0]}yaml test

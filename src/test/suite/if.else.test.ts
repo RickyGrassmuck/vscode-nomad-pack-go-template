@@ -26,7 +26,7 @@ suite('Parse If-Else', () => {
             xxxx
           xxx
         [[ end ]]
-        [[- if .Value }} xxx {{ end -]]
+        [[- if .Value ]] xxx [[ end -]]
       `,
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
@@ -66,7 +66,7 @@ suite('Parse If-Else', () => {
             xxx
           xxx
         [[ end ]]
-        [[ if .Value }} xxxx [[ else if $value ]] xxx [[ else ]] xxx [[ end ]]
+        [[ if .Value ]] xxxx [[ else if $value ]] xxx [[ else ]] xxx [[ end ]]
       `,
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
