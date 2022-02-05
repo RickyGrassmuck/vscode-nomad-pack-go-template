@@ -17,7 +17,6 @@ suite('Parse Define', () => {
   teardown(async () => {
     await vscode.commands.executeCommand('workbench.action.closeAllEditors');
   });
-
   test('Parse define-end', async () => {
     const doc = await vscode.workspace.openTextDocument({
       content: `
@@ -36,7 +35,7 @@ suite('Parse Define', () => {
     // prettier-ignore
     expect(tokens?.data).to.be.equalTo([
       1, 8, 2, TokenType.begin, 0,
-      0, 2, 6, TokenType.control, 0,
+      0, 3, 6, TokenType.control, 0,
       0, 7, 6, TokenType.string, 0,
       0, 6, 2, TokenType.end, 0,
       4, 8, 2, TokenType.begin, 0,
