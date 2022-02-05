@@ -45,7 +45,7 @@ suite('Parse Define', () => {
       0, 4, 2, TokenType.end, 0,
       1, 8, 4, TokenType.begin, 0,
       0, 4, 6, TokenType.control, 0,
-      0, 6, 6, TokenType.string, 0,
+      0, 7, 6, TokenType.string, 0,
       0, 7, 2, TokenType.end, 0,
       0, 7, 2, TokenType.begin, 0,
       0, 3, 3, TokenType.control, 0,
