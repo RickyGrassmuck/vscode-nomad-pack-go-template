@@ -26,12 +26,11 @@ suite('Parse Define', () => {
             xxxx
           xxx
         [[ end ]]
-        [[- define "name" ]] xxx [[ end -]]
-      `,
+        [[- define "name" ]] xxx [[ end -]] `,
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
     // prettier-ignore
-    console.log(tokens?.data);
+    console.error(tokens?.data);
     expect(tokens?.data).to.be.Uint32Array();
     // prettier-ignore
     expect(tokens?.data).to.be.equalTo([
