@@ -4,8 +4,8 @@ import * as vscode from 'vscode';
 import GoTemplateSemanticTokensProvider from '../../GoTemplateSemanticTokensProvider';
 import TokenType from '../../tokenType';
 
+chai.config.truncateThreshold = 500;
 chai.use(assertArrays);
-chai.config.truncateThreshold = 150;
 
 suite('Parse Define', () => {
   let provider: GoTemplateSemanticTokensProvider;
@@ -38,7 +38,7 @@ suite('Parse Define', () => {
     expect(tokens?.data).to.be.equalTo([
       1, 8, 2, TokenType.begin, 0,
       0, 3, 6, TokenType.control, 0,
-      0, 6, 6, TokenType.string, 0,
+      0, 7, 6, TokenType.string, 0,
       0, 7, 2, TokenType.end, 0,
       4, 8, 2, TokenType.begin, 0,
       0, 3, 3, TokenType.control, 0,
