@@ -21,12 +21,12 @@ suite('Parse Define', () => {
   test('Parse define-end', async () => {
     const doc = await vscode.workspace.openTextDocument({
       content: `
-        [[define "name"]]
+        [[ define "name" ]]
           xxxx
             xxxx
           xxx
         [[ end ]]
-        [[- define "name"]] xxx [[ end -]]
+        [[- define "name" ]] xxx [[ end -]]
       `,
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
