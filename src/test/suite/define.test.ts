@@ -30,6 +30,7 @@ suite('Parse Define', () => {
       `,
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
+    console.log(tokens?.data)
     expect(tokens?.data).to.be.Uint32Array();
     // prettier-ignore
     expect(tokens?.data).to.be.equalTo([

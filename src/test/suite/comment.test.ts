@@ -34,11 +34,12 @@ suite('Parse Comment', () => {
 
   test('Parse multi line comment', async () => {
     const doc = await vscode.workspace.openTextDocument({
-      content: `  {{- /* This is
+      content: `  [[- /* This is
       multi line
-  comment */}}  `,
+  comment */]]  `,
     });
     const tokens = await provider.provideDocumentSemanticTokens(doc);
+    console.log(tokens?.data)
     expect(tokens?.data).to.be.Uint32Array();
     // prettier-ignore
     expect(tokens?.data).to.be.equalTo([
