@@ -13,16 +13,18 @@ Nomad Pack Flavor Go Template Syntax Highlight Support for VSCode.
 
 ## Release
 
-- **[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=RickyGrassmuck.vscode-nomad-pack-go-template) / Recommend**
+- **[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=RickyGrassmuck.vscode-nomad-pack-template) / Recommend**
 - [GitHub Release](https://github.com/RickyGrassmuck/vscode-nomad-pack-go-template/releases)
 
 ## Features
 
+- Uses the alternative `[[ ]]` opening and closing delimiters that are used in Nomad-Pack template files.
+-
 - Support syntax highlighting for Go Template embedded in literal string in Go source file.
 
   ![Go](./assets/screenshots/go.png)
 
-- Support syntax highlighting for Go Template files: `*.go.txt`, `*.go.tpl`, `*.go.tmpl`, `*.gtpl`.
+- Support syntax highlighting for Go Template files: `*.go.txt`, `*.go.tpl`, `*.go.tmpl`, `*.gtpl` `*.tpl`.
 
   ![Template](./assets/screenshots/tpl.png)
 
@@ -34,7 +36,7 @@ Nomad Pack Flavor Go Template Syntax Highlight Support for VSCode.
 
   ![HTML](./assets/screenshots/html.png)
 
-- Support syntax highlighting for Go Template embedded in unknown extension files which begin with Go Template Comment. Ex: `{{ /* Go Template */ }}`.
+- Support syntax highlighting for Go Template embedded in unknown extension files which begin with Go Template Comment. Ex: `[[ /* Go Template */ ]]`.
 
   ![Comment](./assets/screenshots/comment.png)
 
