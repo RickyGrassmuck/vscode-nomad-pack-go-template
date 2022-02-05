@@ -1,0 +1,250 @@
+{
+  "name": "vscode-nomad-pack-template",
+  "displayName": "Nomad Pack Style Go Template Support",
+  "description": "Syntax highlight support for Nomad Pack's flavor of Go text/template and html/template",
+  "version": "0.1.0",
+  "publisher": "RickyGrassmuck",
+  "license": "MIT",
+  "homepage": "https://github.com/RickyGrassmuck/vscode-nomad-pack-go-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RickyGrassmuck/vscode-nomad-pack-go-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RickyGrassmuck/vscode-nomad-pack-go-template/issues",
+    "email": "rigrassm@gmail.com"
+  },
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "galleryBanner": {
+    "color": "#232323",
+    "theme": "dark"
+  },
+  "icon": "assets/logo.png",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "go",
+    "template",
+    "highlight",
+    "syntax"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "clean": "rm -rf ./{out,coverage,.nyc_output}",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@tsconfig/node12": "1.0.7",
+    "@types/chai": "4.2.15",
+    "@types/chai-arrays": "2.0.0",
+    "@types/glob": "7.1.3",
+    "@types/mocha": "8.2.1",
+    "@types/node": "12",
+    "@types/vscode": "1.44.0",
+    "@typescript-eslint/eslint-plugin": "4.17.0",
+    "@typescript-eslint/parser": "4.17.0",
+    "chai": "4.3.3",
+    "chai-arrays": "2.2.0",
+    "eslint": "7.21.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-prettier": "3.3.1",
+    "glob": "7.1.6",
+    "mocha": "8.3.1",
+    "nyc": "15.1.0",
+    "prettier": "2.2.1",
+    "typescript": "4.2.3",
+    "vscode-test": "1.5.1"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:nomad-pack-go-template.reload"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nomad-pack-go-template",
+        "aliases": [
+          "Go Template",
+          "go-template"
+        ],
+        "extensions": [
+          ".go.txt",
+          ".go.tpl",
+          ".go.tmpl",
+          ".gtpl",
+          ".tpl"
+        ],
+        "firstLine": "[\\t ]*\\[\\[(-[\\t ])?\\/\\*.*?\\*\\/([\\t ]-)?\\]\\][\\t ]*",
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "go-template",
+        "scopeName": "source.go-template",
+        "path": "./syntaxes/go-template.tmLanguage.json"
+      },
+      {
+        "language": "go-template",
+        "scopeName": "source.go.injection.double.go-template",
+        "path": "./syntaxes/go-double.go-template.tmLanguage.json",
+        "injectTo": [
+          "source.go"
+        ]
+      },
+      {
+        "language": "go-template",
+        "scopeName": "source.go.injection.raw.go-template",
+        "path": "./syntaxes/go-raw.go-template.tmLanguage.json",
+        "injectTo": [
+          "source.go"
+        ]
+      },
+      {
+        "language": "go-template",
+        "scopeName": "text.injection.go-template",
+        "path": "./syntaxes/injection.go-template.tmLanguage.json",
+        "injectTo": [
+          "source.css",
+          "source.js",
+          "source.json",
+          "text.html.derivative",
+          "text.xml"
+        ]
+      },
+      {
+        "scopeName": "text.markdown.go-template.codeblock",
+        "path": "./syntaxes/markdown.go-template.tmLanguage.json",
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.go-template": "go-template"
+        }
+      }
+    ],
+    "semanticTokenScopes": [
+      {
+        "scopes": {
+          "goTemplate": [
+            "source.go-template"
+          ],
+          "begin": [
+            "punctuation.section.embedded.begin.go-template"
+          ],
+          "end": [
+            "punctuation.section.embedded.end.go-template"
+          ],
+          "rawString": [
+            "string.quoted.raw.go-template"
+          ],
+          "assignment": [
+            "keyword.operator.assignment.go-template"
+          ],
+          "pipe": [
+            "keyword.operator.pipe.go-template"
+          ],
+          "control": [
+            "keyword.control.go-template"
+          ],
+          "builtin": [
+            "support.function.builtin.go-template"
+          ],
+          "stringEscape": [
+            "constant.character.escape.go-template"
+          ],
+          "unknownEscape": [
+            "invalid.illegal.unknown-escape.go-template"
+          ],
+          "placeholder": [
+            "constant.other.placeholder.go-template"
+          ]
+        }
+      }
+    ],
+    "semanticTokenTypes": [
+      {
+        "id": "goTemplate"
+      },
+      {
+        "id": "begin",
+        "superType": "operator",
+        "description": "Begin of Go Template"
+      },
+      {
+        "id": "end",
+        "superType": "operator",
+        "description": "End of Go Template"
+      },
+      {
+        "id": "rawString",
+        "superType": "string"
+      },
+      {
+        "id": "assignment",
+        "superType": "operator"
+      },
+      {
+        "id": "pipe",
+        "superType": "operator"
+      },
+      {
+        "id": "control",
+        "superType": "keyword"
+      },
+      {
+        "id": "builtin",
+        "superType": "function"
+      },
+      {
+        "id": "stringEscape",
+        "superType": "string"
+      },
+      {
+        "id": "unknownEscape",
+        "superType": "string"
+      },
+      {
+        "id": "placeholder",
+        "superType": "string"
+      }
+    ],
+    "configuration": {
+      "title": "Go Template Support",
+      "properties": {
+        "go-template.languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "language id, like \"toml\", \"yaml\", etc."
+        },
+        "go-template.patterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "markdownDescription": "A file glob pattern to match file paths against. This can either be a glob pattern string (like `**/*.yaml` or `**/*.{yaml,yml}`).\nGlob patterns can have the following syntax:\n\n* `*` to match one or more characters in a path segment\n* `?` to match on one character in a path segment\n* `**` to match any number of path segments, including none\n* `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)\n* `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)\n* `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)\n\nNote: a backslash (`\\`) is not valid within a glob pattern."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "nomad-pack-go-template.reload",
+        "title": "Reload Nomad-Pack Go Template Syntax Highlight Support",
+        "category": "Go Template"
+      }
+    ]
+  },
+  "dependencies": {
+    "yarn": "^1.22.17"
+  }
+}
